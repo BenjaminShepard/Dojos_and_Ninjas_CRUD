@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOJO SHOW</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/sketchy.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card mt-3">
+            <h1 class="text-center"> {{dojos.name}} NINJAS</h1>
+            <div class="card-body d-flex justify-content-center">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="table-dark">
+                            <th scope="col">FIRST NAME</th>
+                            <th scope="col">LAST NAME</th>
+                            <th scope="col">AGE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ninja in ninjas %}
+                        <tr class="table-success">
+                            <td>{{ ninja.first_name }}</td>
+                            <td>{{ ninja.last_name }}</td>
+                            <td>{{ ninja.age }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="/" class="btn btn-danger mt-3">HOME</a>
+    </div>
+</body>
+
+</html>

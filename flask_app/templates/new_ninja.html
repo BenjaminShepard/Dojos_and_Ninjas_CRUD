@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEW NINJA</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/sketchy.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card ">
+            <h1 class="text-center">CREATE A NINJA</h1>
+            <div class="card-body">
+                <form action="/new_ninja" method="POST">
+                    <select class="form-select form-select-sm" aria-label="Small select example" name="dojo_id">
+                        {% for dojo in dojos %}
+                            <option value= " {{dojo.id}} " >{{ dojo.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="age" class="form-label">FIRST NAME:</label>
+                    <input type="text" class="form-control" name="first_name" id="first_name">
+                    <label for="last_name" class="form-label">LAST NAME:</label>
+                    <input type="text" class="form-control" name="last_name" id="last_name">
+                    <label for="age" class="form-label">AGE:</label>
+                    <input type="text" class="form-control" name="age" id="age">
+                    <input type="submit" class="btn btn-primary mt-3" value="Create Ninja">
+                </form>
+            </div>
+        </div>
+        <a href="/" class="btn btn-danger mt-3">HOME</a>
+    </div>
+</body>
+</html>
